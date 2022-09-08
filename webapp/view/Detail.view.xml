@@ -1,0 +1,38 @@
+<mvc:View xmlns="sap.m" xmlns:semantic="sap.f.semantic" xmlns:mvc="sap.ui.core.mvc" xmlns:form="sap.ui.layout.form" controllerName="testapp.controller.Detail">
+    <semantic:SemanticPage id="detailPage" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+        <semantic:titleHeading>
+            <Title text="{detailModel>/d/results/0/RESIDENTIAL_PRODUCT_UNIQUE_KEY__C}" level="H2"/>
+        </semantic:titleHeading>
+        <semantic:headerContent>
+            <ObjectAttribute title="{i18n>Description}" text="{detailModel>/d/results/0/BACKING_DESCRIPTION__C}"/>
+        </semantic:headerContent>
+        <!--Semantic ShareMenu Buttons-->
+        <semantic:sendEmailAction>
+            <semantic:SendEmailAction id="shareEmail" press=".onSendEmailPress"/>
+        </semantic:sendEmailAction>
+
+        <semantic:closeAction>
+            <semantic:CloseAction id="closeColumn" press=".onCloseDetailPress"/>
+        </semantic:closeAction>
+
+        <semantic:fullScreenAction>
+            <semantic:FullScreenAction id="enterFullScreen" visible="{= !${device>/system/phone} &amp;&amp; !${appView>/actionButtonsInfo/midColumn/fullScreen}}" press=".toggleFullScreen"/>
+        </semantic:fullScreenAction>
+        <semantic:exitFullScreenAction>
+            <semantic:ExitFullScreenAction id="exitFullScreen" visible="{= !${device>/system/phone} &amp;&amp; ${appView>/actionButtonsInfo/midColumn/fullScreen}}" press=".toggleFullScreen"/>
+        </semantic:exitFullScreenAction>
+
+        <semantic:content>
+            <form:SimpleForm maxContainerCols="2" editable="false" layout="ResponsiveGridLayout" labelSpanL="12" labelSpanM="12" emptySpanL="0" emptySpanM="0" columnsL="1" columnsM="1">
+                <form:content>
+                    <Label text="{i18n>ProductName}"/>
+                    <Text text="{detailModel>/d/results/0/PRODUCT_NAME__C}"/>
+                    <Label text="{i18n>Category}"/>
+                    <Text text="{detailModel>/d/results/0/CATEGORY__C}"/>
+                    <Label text="{i18n>SubCategory}"/>
+                    <Text text="{detailModel>/d/results/0/SUB_CATEGORY__C}"/>
+               </form:content>
+            </form:SimpleForm>
+        </semantic:content>
+    </semantic:SemanticPage>
+</mvc:View>

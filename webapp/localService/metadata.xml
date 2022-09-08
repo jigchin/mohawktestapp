@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <edmx:DataServices m:DataServiceVersion="2.0" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+        <Schema Namespace="default" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="CPLViewType">
+                <Key>
+                    <PropertyRef Name="ACCOUNT__C"/>
+                    <PropertyRef Name="PRODUCT_UNIQUE_KEY__C"/>
+                    <PropertyRef Name="WAREHOUSE_CODE__C"/>
+                    <PropertyRef Name="CPL_PRICE_ID__C"/>
+                    <PropertyRef Name="START_DATE__C"/>
+                    <PropertyRef Name="END_DATE__C"/>
+                </Key>
+                <Property Name="ACCOUNT__C" Type="Edm.String" Nullable="false" MaxLength="15"/>
+                <Property Name="PRODUCT_UNIQUE_KEY__C" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="WAREHOUSE_CODE__C" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="CPL_PRICE_ID__C" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="START_DATE__C" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="END_DATE__C" Type="Edm.String" MaxLength="5000"/>
+                <Property Name="BILLING_PRICE__C" Type="Edm.Decimal" Precision="16" Scale="2"/>
+                <Property Name="BUYING_GROUP_NUMBER__C" Type="Edm.String" MaxLength="10"/>
+                <Property Name="BUYING_GROUP_PRICE__C" Type="Edm.String" MaxLength="1"/>
+                <Property Name="CURRENCY__C" Type="Edm.String" MaxLength="3"/>
+                <Property Name="NET_PRICE__C" Type="Edm.Decimal" Precision="16" Scale="2"/>
+                <Property Name="PRICING_UOM__C" Type="Edm.String" MaxLength="2"/>
+                <Property Name="MIN_ORDER_QTY__C" Type="Edm.String" MaxLength="1"/>
+                <Property Name="CPL_RECORD_ID" Type="Edm.String" MaxLength="36"/>
+                <Property Name="CORE_STYLE_NUMBER__C" Type="Edm.String" MaxLength="10"/>
+                <Property Name="PRODUCT_UNIQUE_KEY" Type="Edm.String" Nullable="false" MaxLength="50"/>
+            </EntityType>
+            <EntityType Name="CPLDetailViewType">
+                <Key>
+                    <PropertyRef Name="RESIDENTIAL_PRODUCT_UNIQUE_KEY__C"/>
+                </Key>
+                <Property Name="RESIDENTIAL_PRODUCT_UNIQUE_KEY__C" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="BACKING_DESCRIPTION__C" Type="Edm.String" MaxLength="255"/>
+                <Property Name="BRAND_CODE__C" Type="Edm.String" MaxLength="100"/>
+                <Property Name="CATEGORY__C" Type="Edm.String" MaxLength="81"/>
+                <Property Name="CARTONS_PER_PALLET__C" Type="Edm.String" MaxLength="30"/>
+                <Property Name="SUB_CATEGORY__C" Type="Edm.String" MaxLength="81"/>
+                <Property Name="PRODUCT_STYLE_NUMBER__C" Type="Edm.String" MaxLength="20"/>
+                <Property Name="SIZE_DESCRIPTION__C" Type="Edm.String" MaxLength="255"/>
+                <Property Name="PRODUCT_NAME__C" Type="Edm.String" MaxLength="100"/>
+                <Property Name="MASTER_NAME__C" Type="Edm.String" MaxLength="50"/>
+                <Property Name="MASTER_STYLE_NUM__C" Type="Edm.String" MaxLength="10"/>
+                <Property Name="SALESFORCE_PRODUCT_CATEGORY__C" Type="Edm.String" Nullable="false" MaxLength="81"/>
+            </EntityType>
+            <EntityContainer Name="v2" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="CPLView" EntityType="default.CPLViewType"/>
+                <EntitySet Name="CPLDetailView" EntityType="default.CPLDetailViewType"/>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
